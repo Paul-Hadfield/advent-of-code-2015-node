@@ -1,27 +1,13 @@
-export type Box = {
-  length: number;
-  width: number;
-  height: number;
-};
+import * as fs from "fs";
+import type { Box } from "./box.ts";
+import { parseBox } from "./parse-box.ts";
+import { calculateRequiredPaper } from "./calculate-required-paper.ts";
 
-export function parseBox(dimensions: string): Box {
-  const values = dimensions.split("x");
-  return {
-    length: parseInt(values[0]),
-    width: parseInt(values[1]),
-    height: parseInt(values[2]),
-  };
-}
+const boxes = fs
+  .readFileSync("./data.txt", "utf8")
+  .trim()
+  .split("\n")
+  .map(parseBox)
+  .reduce((acc, box) => acc + calculateRequiredPaper(box), 0);
 
-export function calculateRequiredPaper(box: Box): number {
-  return (
-    2 * box.length * box.width +
-    2 * box.width * box.height +
-    2 * box.height * box.length +
-    Math.min(
-      box.length * box.width,
-      box.length * box.height,
-      box.width * box.height,
-    )
-  );
-}
+console.log(boxes);
