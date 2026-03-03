@@ -1,8 +1,8 @@
 import { expect, test } from "vitest";
 
-import type { Box } from "../box";
-import { parseBox } from "../parse-box";
-import { calculateRequiredPaper } from "../calculate-required-paper";
+import type { Box } from "../box.ts";
+import { parseBox } from "../parse-box.ts";
+import { calculateRequiredPaper } from "../calculate-required-paper.ts";
 
 const BOX: Box = { length: 2, width: 3, height: 4 };
 

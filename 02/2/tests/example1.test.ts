@@ -1,8 +1,8 @@
 import { expect, test } from "vitest";
 
-import type { Box } from "../box";
-import { parseBox } from "../parse-box";
-import { calculateRequiredRibbon } from "../calculate-required-ribbon";
+import type { Box } from "../box.ts";
+import { parseBox } from "../parse-box.ts";
+import { calculateRequiredRibbon } from "../calculate-required-ribbon.ts";
 
 const BOX: Box = { length: 2, width: 3, height: 4 };
 
