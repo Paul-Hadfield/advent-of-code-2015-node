@@ -3,7 +3,6 @@ export function hasBannedValues(value: string): boolean {
     value.includes("ab") ||
     value.includes("cd") ||
     value.includes("pq") ||
-    value.includes("or") ||
     value.includes("xy")
   );
 }
